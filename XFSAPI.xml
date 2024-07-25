@@ -1,0 +1,273 @@
+<ApiMonitor>
+    <Include Filename="Headers\windows.h.xml" />
+    <Module CallingConvention="STDCALL" ErrorFunc="GetLastError" Name="msxfs.dll" OnlineHelp="MSDN">
+        
+        <!-- Variables -->
+        <Variable Base="USHORT"         Name="HSERVICE"        Type="Alias" />
+        <Variable Base="HSERVICE"       Name="LPHSERVICE"      Type="Pointer" />
+        <Variable Base="ULONG"          Name="REQUESTID"       Type="Alias" />
+        <Variable Base="REQUESTID"      Name="LPREQUESTID"     Type="Pointer" />
+        <Variable Base="HANDLE"         Name="HAPP"            Type="Alias" />
+        <Variable Base="HAPP"           Name="LPHAPP"          Type="Pointer" />
+        <Variable Base="HRESULT"        Name="[WFS_ERROR]"     Type="Alias">
+            <Display Name="HRESULT" />
+            <Enum>
+                <Set Name="WFS_ERR_ALREADY_STARTED"          Value="0xFFFFFFFF" />
+                <Set Name="WFS_ERR_API_VER_TOO_HIGH"         Value="0xFFFFFFFE" />
+                <Set Name="WFS_ERR_API_VER_TOO_LOW"          Value="0xFFFFFFFD" />
+                <Set Name="WFS_ERR_CANCELED"                 Value="0xFFFFFFFC" />
+                <Set Name="WFS_ERR_CFG_INVALID_HKEY"         Value="0xFFFFFFFB" />
+                <Set Name="WFS_ERR_CFG_INVALID_NAME"         Value="0xFFFFFFFA" />
+                <Set Name="WFS_ERR_CFG_INVALID_SUBKEY"       Value="0xFFFFFFF9" />
+                <Set Name="WFS_ERR_CFG_INVALID_VALUE"        Value="0xFFFFFFF8" />
+                <Set Name="WFS_ERR_CFG_KEY_NOT_EMPTY"        Value="0xFFFFFFF7" />
+                <Set Name="WFS_ERR_CFG_NAME_TOO_LONG"        Value="0xFFFFFFF6" />
+                <Set Name="WFS_ERR_CFG_NO_MORE_ITEMS"        Value="0xFFFFFFF5" />
+                <Set Name="WFS_ERR_CFG_VALUE_TOO_LONG"       Value="0xFFFFFFF4" />
+                <Set Name="WFS_ERR_CONNECTION_LOST"          Value="0xFFFFFFCA" />
+                <Set Name="WFS_ERR_DEV_NOT_READY"            Value="0xFFFFFFF3" />
+                <Set Name="WFS_ERR_HARDWARE_ERROR"           Value="0xFFFFFFF2" />
+                <Set Name="WFS_ERR_INTERNAL_ERROR"           Value="0xFFFFFFF1" />
+                <Set Name="WFS_ERR_INVALID_ADDRESS"          Value="0xFFFFFFF0" />
+                <Set Name="WFS_ERR_INVALID_APP_HANDLE"       Value="0xFFFFFFEF" />
+                <Set Name="WFS_ERR_INVALID_BUFFER"           Value="0xFFFFFFEE" />
+                <Set Name="WFS_ERR_INVALID_CATEGORY"         Value="0xFFFFFFED" />
+                <Set Name="WFS_ERR_INVALID_COMMAND"          Value="0xFFFFFFEC" />
+                <Set Name="WFS_ERR_INVALID_DATA"             Value="0xFFFFFFCC" />
+                <Set Name="WFS_ERR_INVALID_EVENT_CLASS"      Value="0xFFFFFFEB" />
+                <Set Name="WFS_ERR_INVALID_HPROVIDER"        Value="0xFFFFFFE9" />
+                <Set Name="WFS_ERR_INVALID_HSERVICE"         Value="0xFFFFFFEA" />
+                <Set Name="WFS_ERR_INVALID_HWND"             Value="0xFFFFFFE8" />
+                <Set Name="WFS_ERR_INVALID_HWNDREG"          Value="0xFFFFFFE7" />
+                <Set Name="WFS_ERR_INVALID_POINTER"          Value="0xFFFFFFE6" />
+                <Set Name="WFS_ERR_INVALID_REQ_ID"           Value="0xFFFFFFE5" />
+                <Set Name="WFS_ERR_INVALID_RESULT"           Value="0xFFFFFFE4" />
+                <Set Name="WFS_ERR_INVALID_SERVPROV"         Value="0xFFFFFFE3" />
+                <Set Name="WFS_ERR_INVALID_TIMER"            Value="0xFFFFFFE2" />
+                <Set Name="WFS_ERR_INVALID_TRACELEVEL"       Value="0xFFFFFFE1" />
+                <Set Name="WFS_ERR_LOCKED"                   Value="0xFFFFFFE0" />
+                <Set Name="WFS_ERR_NO_BLOCKING_CALL"         Value="0xFFFFFFDF" />
+                <Set Name="WFS_ERR_NO_SERVPROV"              Value="0xFFFFFFDE" />
+                <Set Name="WFS_ERR_NO_SUCH_THREAD"           Value="0xFFFFFFDD" />
+                <Set Name="WFS_ERR_NO_TIMER"                 Value="0xFFFFFFDC" />
+                <Set Name="WFS_ERR_NOT_LOCKED"               Value="0xFFFFFFDB" />
+                <Set Name="WFS_ERR_NOT_OK_TO_UNLOAD"         Value="0xFFFFFFDA" />
+                <Set Name="WFS_ERR_NOT_REGISTERED"           Value="0xFFFFFFD8" />
+                <Set Name="WFS_ERR_NOT_STARTED"              Value="0xFFFFFFD9" />
+                <Set Name="WFS_ERR_OP_IN_PROGRESS"           Value="0xFFFFFFD7" />
+                <Set Name="WFS_ERR_OUT_OF_MEMORY"            Value="0xFFFFFFD6" />
+                <Set Name="WFS_ERR_SERVICE_NOT_FOUND"        Value="0xFFFFFFD5" />
+                <Set Name="WFS_ERR_SOFTWARE_ERROR"           Value="0xFFFFFFCB" />
+                <Set Name="WFS_ERR_SPI_VER_TOO_HIGH"         Value="0xFFFFFFD4" />
+                <Set Name="WFS_ERR_SPI_VER_TOO_LOW"          Value="0xFFFFFFD3" />
+                <Set Name="WFS_ERR_SRVC_VER_TOO_HIGH"        Value="0xFFFFFFD2" />
+                <Set Name="WFS_ERR_SRVC_VER_TOO_LOW"         Value="0xFFFFFFD1" />
+                <Set Name="WFS_ERR_TIMEOUT"                  Value="0xFFFFFFD0" />
+                <Set Name="WFS_ERR_UNSUPP_CATEGORY"          Value="0xFFFFFFCF" />
+                <Set Name="WFS_ERR_UNSUPP_COMMAND"           Value="0xFFFFFFCE" />
+                <Set Name="WFS_ERR_UNSUPP_DATA"              Value="0xFFFFFFC8" />
+                <Set Name="WFS_ERR_USER_ERROR"               Value="0xFFFFFFC9" />
+                <Set Name="WFS_ERR_VERSION_ERROR_IN_SRVC"    Value="0xFFFFFFCD" />
+                <Set Name="WFS_SUCCESS"                      Value="0x00000000" />
+            </Enum>
+            <Success ErrorFunc="HRESULT" Return="Equal" Value="0" />
+        </Variable>
+        <Variable Base="LPVOID"        Name="XFSBLOCKINGHOOK"    Type="Alias" />
+        <Variable Base="LPVOID"        Name="LPXFSBLOCKINGHOOK"  Type="Alias" />
+        <Variable Base="CHAR"          Count="257"               Name="CHAR [256+1]"       Type="Array" />
+        
+        <Variable Name="WFSVERSION"      Type="Struct">
+            <Field Name="szDescription"  Type="CHAR [256+1]" />
+            <Field Name="szSystemStatus" Type="CHAR [256+1]" />
+            <Field Name="wHighVersion"   Type="WORD" />
+            <Field Name="wLowVersion"    Type="WORD" />
+            <Field Name="wVersion"       Type="WORD" />
+        </Variable>
+        <Variable Base="WFSVERSION" Name="LPWFSVERSION"      Type="Pointer" />
+
+        <Variable Name="[u]" Type="Union">
+            <Display Name="union" />
+            <Field Name="dwCommandCode" Type="DWORD" />
+            <Field Name="dwEventID"     Type="DWORD" />
+        </Variable>
+
+        <Variable Name="WFSRESULT"    Type="Struct">
+            <Field Name="[u]"         Type="" />
+            <Field Name="HSERVICE"    Type="hService" />
+            <Field Name="HRESULT"     Type="hResult" />
+            <Field Name="LPVOID"      Type="lpBuffer" />
+            <Field Name="REQUESTID"   Type="RequestID" />
+            <Field Name="SYSTEMTIME"  Type="tsTimestamp" />
+        </Variable>
+        <Variable Base="WFSRESULT"     Name="LPWFSRESULT"    Type="Pointer" />
+        <Variable Base="LPWFSRESULT"   Name="LPWFSRESULT*"   Type="Pointer" />
+
+        <Category Name="XFSAPI" />
+        <Api Name="WFSCancelAsyncRequest">
+            <Param Name="hService"  Type="HSERVICE" />
+            <Param Name="RequestID" Type="REQUESTID" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSCancelBlockingCall">
+            <Param Name="dwThreadID"  Type="DWORD" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSCleanUp">
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSClose">
+            <Param Name="hService"  Type="HSERVICE" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSAsyncClose">
+            <Param Name="hService"     Type="HSERVICE" />
+            <Param Name="hWnd"         Type="HWND" />
+            <Param Name="lpRequestID"  Type="LPREQUESTID" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSCreateAppHandle">
+            <Param Name="lphApp"       Type="LPHAPP" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSDeregister">
+            <Param Name="dwEventClass" Type="DWORD" />
+            <Param Name="hService"     Type="HSERVICE" />
+            <Param Name="hWndReg"      Type="HWND" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSAsyncDeregister">
+            <Param Name="dwEventClass" Type="DWORD" />
+            <Param Name="hService"     Type="HSERVICE" />
+            <Param Name="hWnd"         Type="HWND" />
+            <Param Name="hWndReg"      Type="HWND" />
+            <Param Name="lpRequestID"  Type="LPREQUESTID" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSDestroyAppHandle">
+            <Param Name="hApp"         Type="HAPP" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSExecute">
+            <Param Name="dwCommand"    Type="DWORD" />
+            <Param Name="dwTimeOut"    Type="DWORD" />
+            <Param Name="hService"     Type="HSERVICE" />
+            <Param Name="lpCmdData"    Type="LPVOID" />
+            <Param Name="lppResult"    Type="LPWFSRESULT*" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSAsyncExecute">
+            <Param Name="dwCommand"    Type="DWORD" />
+            <Param Name="dwTimeOut"    Type="DWORD" />
+            <Param Name="hService"     Type="HSERVICE" />
+            <Param Name="hWnd"         Type="HWND" />
+            <Param Name="lpCmdData"    Type="LPVOID" />
+            <Param Name="lpRequestID"  Type="LPREQUESTID" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSFreeResult">
+            <Param Name="lpResult"     Type="LPWFSRESULT" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSGetInfo">
+            <Param Name="dwCategory"      Type="DWORD" />
+            <Param Name="dwTimeOut"       Type="DWORD" />
+            <Param Name="hService"        Type="HSERVICE" />
+            <Param Name="lpQueryDetails"  Type="LPVOID" />
+            <Param Name="lppResult"       Type="LPWFSRESULT*" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSAsyncGetInfo">
+            <Param Name="dwCategory"      Type="DWORD" />
+            <Param Name="dwTimeOut"       Type="DWORD" />
+            <Param Name="hService"        Type="HSERVICE" />
+            <Param Name="hWnd"            Type="HWND" />
+            <Param Name="lpQueryDetails"  Type="LPVOID" />
+            <Param Name="lpRequestID"     Type="LPREQUESTID" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSIsBlocking">
+            <Return Type="BOOL" />
+        </Api>
+        <Api Name="WFSLock">
+            <Param Name="dwTimeOut"   Type="DWORD" />
+            <Param Name="hService"    Type="HSERVICE" />
+            <Param Name="lppResult"   Type="LPWFSRESULT*" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSAsyncLock">
+            <Param Name="dwTimeOut"   Type="DWORD" />
+            <Param Name="hService"    Type="HSERVICE" />
+            <Param Name="hWnd"        Type="HWND" />
+            <Param Name="lpRequestID" Type="LPREQUESTID" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSOpen">
+            <Param Name="dwSrvcVersionsRequired" Type="DWORD" />
+            <Param Name="dwTimeOut"              Type="DWORD" />
+            <Param Name="dwTraceLevel"           Type="DWORD" />
+            <Param Name="hApp"                   Type="HAPP" />
+            <Param Name="lphService"             Type="LPHSERVICE" />
+            <Param Name="lpSPIVersion"           Type="LPWFSVERSION" />
+            <Param Name="lpSrvcVersion"          Type="LPWFSVERSION" />
+            <Param Name="lpszAppID"              Type="LPSTR" />
+            <Param Name="lpszLogicalName"        Type="LPSTR" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSAsyncOpen">
+            <Param Name="dwSrvcVersionsRequired" Type="DWORD" />
+            <Param Name="dwTimeOut"              Type="DWORD" />
+            <Param Name="dwTraceLevel"           Type="DWORD" />
+            <Param Name="hApp"                   Type="HAPP" />
+            <Param Name="hWnd"                   Type="HWND" />
+            <Param Name="lphService"             Type="LPHSERVICE" />
+            <Param Name="lpRequestID"            Type="LPREQUESTID" />
+            <Param Name="lpSPIVersion"           Type="LPWFSVERSION" />
+            <Param Name="lpSrvcVersion"          Type="LPWFSVERSION" />
+            <Param Name="lpszAppID"              Type="LPSTR" />
+            <Param Name="lpszLogicalName"        Type="LPSTR" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSRegister">
+            <Param Name="dwEventClass"  Type="DWORD" />
+            <Param Name="hService"      Type="HSERVICE" />
+            <Param Name="hWndReg"       Type="HWND" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSAsyncRegister">
+            <Param Name="dwEventClass"  Type="DWORD" />
+            <Param Name="hService"      Type="HSERVICE" />
+            <Param Name="hWnd"          Type="HWND" />
+            <Param Name="hWndReg"       Type="HWND" />
+            <Param Name="lpRequestID"   Type="LPREQUESTID" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSSetBlockingHook">
+            <Param Name="lpBlockFunc"   Type="XFSBLOCKINGHOOK" />
+            <Param Name="lppPrevFunc"   Type="LPXFSBLOCKINGHOOK" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSStartUp">
+            <Param Name="dwVersionsRequired" Type="DWORD" />
+            <Param Name="lpWFSVersion"       Type="LPWFSVERSION" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSUnhookBlockingHook">
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSUnlock">
+            <Param Name="hService"    Type="HSERVICE" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFSAsyncUnlock">
+            <Param Name="hService"    Type="HSERVICE" />
+            <Param Name="hWnd"        Type="HWND" />
+            <Param Name="lpRequestID" Type="LPREQUESTID" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+        <Api Name="WFMSetTraceLevel">
+            <Param Name="dwTraceLevel" Type="DWORD" />
+            <Param Name="hService"     Type="HSERVICE" />
+            <Return Type="[WFS_ERROR]" />
+        </Api>
+    </Module>
+</ApiMonitor>
